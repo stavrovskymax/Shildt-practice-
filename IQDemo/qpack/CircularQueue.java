@@ -3,15 +3,16 @@ package qpack;
 // Circular queue
 public class CircularQueue implements ICharQ {
     private char q[]; // array for storing queue elements
-    private int putloc, getloc; // index of inserted and extracted elements
+    private int putloc, getloc; // put and get elements
     
-    // create empty queue of specific size
+    // Create empty queue of specific size
     public CircularQueue(int size) {
         q = new char[size+1]; // allocate memory for the queue
         putloc = getloc = 0;
     }
     
-     // put a character in the queue
+    @Override
+    // Put a character in the queue
     public void put(char ch) {
         if (putloc+1 == getloc | ((putloc == q.length-1) & (getloc==0))) {
             System.out.println(" - Queue is full");
@@ -24,8 +25,9 @@ public class CircularQueue implements ICharQ {
         }
         q[putloc] = ch;
     }
-    
-    // extract character from the queue
+
+    @Override    
+    // Get character from the queue
     public char get() {
         if (getloc == putloc) {
             System.out.println(" - Queue is empty");
@@ -39,7 +41,8 @@ public class CircularQueue implements ICharQ {
           return q[getloc];
     }
     
-    // reset the queue
+    @Override
+    // Reset the queue
     public void reset() {
         for (int i=0; i < q.length; i++) {
             q[i] = ' ';
