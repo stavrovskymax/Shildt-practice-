@@ -7,7 +7,7 @@ public class Bubble{
 
   int size = nums.length;
 
-  for(i=1; i < size-1; i++) {
+  for(i=0; i < size-1; i++) {
    for(j=0; j < size-1; j++) {
     if (nums[j] > nums[j+1]) { 
      b = nums[j];
